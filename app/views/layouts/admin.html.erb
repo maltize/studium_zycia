@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Archidiecezjalne Studium Życia Rodzinnego</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+  <!-- LOGO -->
+  <div id="logo">
+    <div class="container_16">
+      <div class="grid_16">
+        Panel Administracyjny - A.S.Ż.R.
+      </div>
+    </div>
+    <div class="clear"></div>
+  </div>
+
+  <!-- FLASH MESSAGE -->
+  <div id="flash_message">
+    <% if flash[:notice] %>
+      <p id="flash_notice"><%= flash[:notice] %></p>
+      <% flash[:notice] = nil %>
+    <% end %>
+    <% if flash[:error] %>
+      <p id="flash_error"><%= flash[:error] %></p>
+      <% flash[:error] = nil %>
+    <% end %>
+  </div>
+  <div class="clear"></div>
+
+  <!-- CONTENT -->
+  <div id="main" class="container_16">
+    <div class="grid_4">
+      <ul>
+        <li><%= link_to "Strony", admin_pages_path %></li>
+      </ul>
+    </div>
+    <div class="grid_12">
+      <%= yield %>
+    </div>
+  </div>
+  <div class="clear"></div>
+
+  <!-- FOOTER -->
+  <div id="footer">
+    <div>
+      <span>Copyright MacGajek 2010</span>
+    </div>
+  </div>
+
+</body>
+</html>
